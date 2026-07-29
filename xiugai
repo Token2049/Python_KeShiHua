@@ -1,0 +1,16 @@
+方法 2：永久全局默认（所有代码生效，一劳永逸）
+修改 matplotlib 全局配置文件，以后所有绘图脚本打开保存窗口，默认都是你设置的文件夹，不用每次写代码。
+先运行下面代码，找到配置文件路径：
+python
+运行
+import matplotlib
+print(matplotlib.matplotlib_fname())
+输出类似：C:\Python311\Lib\site-packages\matplotlib\mpl-data\matplotlibrc
+2. 用记事本打开 matplotlibrc 文件
+3. 搜索 savefig.directory，找到这一行：
+plaintext
+#savefig.directory:   ~
+修改为（去掉 #注释，填入你的图片文件夹）：
+plaintext
+savefig.directory:   D:\Python_Img
+保存文件，重启 VSCode，所有代码绘图保存弹窗默认路径永久生效。
